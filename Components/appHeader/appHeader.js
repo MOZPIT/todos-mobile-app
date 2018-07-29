@@ -5,7 +5,7 @@ export default class appHedaer extends Component{
     render() {
         return(
           <View style={styles.header}>
-            <Text style={styles.title}>Todo List</Text>
+            <Text style={styles.title}>My Todo List</Text>
           </View>
         );
     }
