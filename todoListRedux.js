@@ -41,8 +41,8 @@ export const reducer = (state = initialState, action) => {
     }
     case types.REMOVE: {
       return {
-        ..state ,
-        todos: todos.filter((todo, i)) => i => !== payload),
+        ...state,
+        todos: todos.filter((todo, i) => i !== payload),
       }
     }
   }

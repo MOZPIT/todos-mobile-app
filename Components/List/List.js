@@ -1,21 +1,37 @@
 import React, { Component } from 'react'
-import {AppRegistry, ScrollView, StyleSheet} from 'react-native'
+import {AppRegistry, TouchableOpacity, ScrollView, StyleSheet, View} from 'react-native'
 
 export default class List extends Component{
-  render(){
-    return(
-      <ScrollView style={styles.container}>
+  renderItem = (text, i) => {
+   const {onPressItem} = this.props
 
-      </ScrollView>
-    );
-  }
+   return (
+     <TouchableOpacity
+       style={styles.item}
+       onPress={() => onPressItem(i)}
+     >
+       <Text>{text}</Text>
+     </TouchableOpacity>
+   )
+ }
+
+ render() {
+   const {list} = this.props
+
+   return (
+     <View>
+       {list.map(this.renderItem)}
+     </View>
+   )
+ }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    paddingVertical: 20,
-    flex:1,
-  }
-});
+ item: {
+   backgroundColor: 'whitesmoke',
+   marginBottom: 5,
+   padding: 15,
+ },
+})
 
-AppRegistry.registerComponent("List", () => List);
+AppRegistry.registerComponent('List', () => List)

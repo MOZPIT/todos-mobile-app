@@ -3,9 +3,11 @@ import { AppRegistry, Text, StyleSheet, View } from 'react-native'
 
 export default class appHedaer extends Component{
     render() {
+        const {children} = this.props
+
         return(
           <View style={styles.header}>
-            <Text style={styles.title}>My Todo List</Text>
+            <Text style={styles.title}>{children}</Text>
           </View>
         );
     }
